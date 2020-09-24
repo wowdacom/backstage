@@ -1,14 +1,15 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <PaceTimeTracker></PaceTimeTracker>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PaceTimeTracker from './components/PaceTimeTracker.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    PaceTimeTracker
   }
 }
 </script>
