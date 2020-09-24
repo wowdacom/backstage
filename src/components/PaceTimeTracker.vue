@@ -2,8 +2,8 @@
   <div>
       <div class="container-fluid">
           <div class="row">
-              <div class="col-12">
-                  台幣: {{ counterRef }}<br> 美金: {{ showFormated }} 
+              <div class="col-12 main-dashboard">
+                  台幣: {{ counterRef }}<br> 美金: {{ showFormated }} <br> 目前顏色： {{ showDistanceColor }}
               </div>
               <div class="col-12">
                   <button @click="start" type="button" class="btn btn-primary btn-sm mr-1">開始計時</button>
@@ -17,12 +17,14 @@
 </template>
 
 <script>
-import { onMounted, computed, ref } from "vue"
+import { useCssVars, onMounted, computed, ref } from "vue"
 
 export default {
     setup () {
         const timerRef = ref(0);
         const counterRef = ref(0);
+        const distanceColor = ref('rgb(0, 0, 0)')
+
 
         // life cycle
         onMounted(() => {
@@ -31,8 +33,10 @@ export default {
             // console.log(timerRef.value)
         });
 
+        
         // computed
         const showFormated = computed(()=> new Intl.NumberFormat("en-US").format(counterRef.value/28.78))
+        const showDistanceColor = computed(()=> distanceColor.value = `rgb(${counterRef.value},${counterRef.value}, ${counterRef.value})`)
 
         //method
         const start = ()=>{
@@ -61,12 +65,16 @@ export default {
         };
 
         // 寫到以上基本的就可以用了，以下 watch 跟 computed
+        useCssVars(()=>({
+            'main-distance-color': showDistanceColor
+        }))
 
         return {
             start,
             reset,
             counterRef,
             showFormated,
+            showDistanceColor,
             goon,
             pause
         }
@@ -74,5 +82,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+.main-dashboard {
+    color: var(--main-distance-color)
+}
 </style>
