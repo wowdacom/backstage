@@ -1,6 +1,7 @@
 <template>
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <PaceTimeTracker></PaceTimeTracker>
+  
 </template>
 
 <script>
@@ -14,7 +15,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,5 +24,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  #popup {
+    border: solid 1px purple;
+    min-height: 50px;
+  }
 }
 </style>
