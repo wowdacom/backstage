@@ -20,8 +20,6 @@
           <p>Capacity: {{ capacity }}</p>
           <button @click="increaseCapacity()">Increase Capacity</button>
         </div>
-
-
       </form>
     </div>
     <div class="container-fluid pt-5">
