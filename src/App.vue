@@ -1,6 +1,9 @@
 <template>
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <PaceTimeTracker></PaceTimeTracker>
+  <PaceTimeTracker
+    @sending-start="handleStart"
+    @sending-complete="handleComplete"
+  ></PaceTimeTracker>
 </template>
 
 <script>
@@ -10,6 +13,14 @@ export default {
   name: 'App',
   components: {
     PaceTimeTracker,
+  },
+  methods: {
+    handleStart() {
+      console.log('sending start \u{1f605}')
+    },
+    handleComplete() {
+      console.log('sending complete \u{01F354}')
+    }
   }
 }
 </script>

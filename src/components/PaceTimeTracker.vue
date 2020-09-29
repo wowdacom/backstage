@@ -89,8 +89,62 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <h1>Hello emit</h1>
-            <custom-form @click="submitForm('wowdacom', 'sdasd')"></custom-form>
+            <h1>Hello Validate Emitted Events</h1>
+            <button @click="sendData">Try $Emit</button>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div>
+    <hr />
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h1>Hello Setup component</h1>
+            <SetUpDemo></SetUpDemo>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div>
+    <hr />
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h1>Hello Lifecycle component</h1>
+            <div v-if="isLifeClose">
+              <LifecycleDemo
+                :likes="currentLike"
+              >
+                <button type="button" @click="handleLifeLikes" class="btn btn-info mr-3">Add</button>
+                <button type="button" @click="handleLifeReset" class="btn btn-secondary ml-3 mr-3">Reset</button>
+                <button type="button" @click="handleCloseCountering" class="btn btn-warning ml-3">關閉/開啟</button>
+              </LifecycleDemo>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div>
+    <hr />
+      <div class="container-fluid mb-5">
+        <div class="row">
+          <div class="col-12">
+            <h1>Hello Scoped Styles </h1>
+            <ScopedStylesDemo></ScopedStylesDemo>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div>
+    <hr />
+      <div class="container-fluid mb-5">
+        <div class="row">
+          <div class="col-12">
+            <h1>Hello Provide / Inject</h1>
+            <ProvideInjectDemo></ProvideInjectDemo>
+            <h2>{{ location }}</h2>
+            <button type="button" @click="handleMove" class="btn btn-warning">移動</button>
           </div>
         </div>
       </div>
@@ -98,14 +152,35 @@
 </template>
 
 <script>
-import { useCssVars, onMounted, computed, ref } from "vue";
+import { useCssVars, onMounted, computed, ref, reactive, provide } from "vue";
+import SetUpDemo from './SetUpDemo.vue'
+import LifecycleDemo from './LifecycleDemo.vue'
+import ScopedStylesDemo from './ScopedStylesDemo.vue'
+import ProvideInjectDemo from  './ProvideInjectDemo.vue'
 
 export default {
+  data () {
+    return {
+      isLifeClose: true,
+      currentLike: 0
+    }
+  },
+  // provide: {
+  //   location: ["我來自 PaceTime 項目一", "我來自 PaceTime 項目二", "我來自 PaceTime 項目三", "我來自 PaceTime 項目四"]
+  // },
   setup() {
     const timerRef = ref(0);
     const counterRef = ref(0);
     const distanceColor = ref("rgb(0, 0, 0)");
     const modalOpen = ref(false);
+    const obj = reactive({ 
+      count: 0 
+    })
+    const location = ref(["我來自 PaceTime 項目一", "我來自 PaceTime 項目二", "我來自 PaceTime 項目三", "我來自 PaceTime 項目四"])
+    const trafficPath = ref(["Taiwan", "India", "Indonesia", "Pakistan", "Bangladesh", "Japan"])
+    const pace = ref(0)
+
+    provide('location', location)
     
     // life cycle
     onMounted(() => {
@@ -147,6 +222,15 @@ export default {
         clearInterval(timerRef.value);
       }
     };
+    const handleMove = () => {
+      if (pace.value < trafficPath.value.length) {
+        pace.value++
+        location.value[0] = trafficPath.value[pace.value]
+      } else {
+        pace.value = 0
+        location.value[0] = trafficPath.value[pace.value]
+      }
+    }
 
     // 寫到以上基本的就可以用了，以下 watch 跟 computed
     useCssVars(() => ({
@@ -162,8 +246,48 @@ export default {
       modalOpen,
       goon,
       pause,
+      handleMove,
+      obj,
+      location
     };
   },
+  emits: {
+    'sending-start': null,
+    'sending-complete' (payload) {
+      console.log("====這裡可以做錯誤處理====")
+      if(payload.duration && payload.response) {
+        return true
+      } else {
+        return false
+      }
+    }
+  },
+  components: {
+    SetUpDemo,
+    LifecycleDemo,
+    ScopedStylesDemo,
+    ProvideInjectDemo
+  },
+  methods: {
+    sendData() {
+      this.$emit('sending-start')
+
+      // send data to API
+
+      this.$emit('sending-complete', {
+        duration: 2
+      })
+    },
+    handleLifeLikes() {
+      this.currentLike += 1;
+    },
+    handleLifeReset() {
+      this.currentLike = 0
+    },
+    handleCloseCountering() {
+      this.isLifeClose = !this.isLifeClose
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
