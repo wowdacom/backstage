@@ -1,8 +1,30 @@
 <template>
   <div>
+    <div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <h1>Hello Axios</h1>
+              <AxiosDemo></AxiosDemo>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <h1>Hello Type Script</h1>
+              <TypeScriptDemo name="Jim"></TypeScriptDemo>
+            </div>
+          </div>
+        </div>
+    </div>
     <div class="container-fluid mb-5">
       <div class="row">
+        
         <div class="col-12 main-dashboard">
+          <hr />
           台幣: {{ counterRef }}<br />
           美金: {{ showFormated }} <br />
           目前顏色： {{ showDistanceColor }}
@@ -149,6 +171,20 @@
         </div>
       </div>
   </div>
+  <div>
+    <hr />
+      <div class="container-fluid mb-5">
+        <div class="row">
+          <div class="col-12">
+            <h1>Hello StylePadding</h1>
+            <ProvideStylePadding padding="['m', 'l@s', 'xl@l']">
+              <div>我在 slot 裡面</div>
+            </ProvideStylePadding>
+          </div>
+        </div>
+      </div>
+  </div>
+  
 </template>
 
 <script>
@@ -157,6 +193,9 @@ import SetUpDemo from './SetUpDemo.vue'
 import LifecycleDemo from './LifecycleDemo.vue'
 import ScopedStylesDemo from './ScopedStylesDemo.vue'
 import ProvideInjectDemo from  './ProvideInjectDemo.vue'
+import ProvideStylePadding from './ProvideStylePadding.vue'
+import TypeScriptDemo from './TypeScriptDemo.vue'
+import AxiosDemo from './AxiosDemo.vue'
 
 export default {
   data () {
@@ -186,6 +225,7 @@ export default {
     onMounted(() => {
       // console.log(typeof timerRef.value)
       // console.log(timerRef.value)
+      console.log()
     });
 
     // computed
@@ -266,7 +306,10 @@ export default {
     SetUpDemo,
     LifecycleDemo,
     ScopedStylesDemo,
-    ProvideInjectDemo
+    ProvideInjectDemo,
+    ProvideStylePadding,
+    TypeScriptDemo,
+    AxiosDemo
   },
   methods: {
     sendData() {

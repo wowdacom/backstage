@@ -1,79 +1,50 @@
 <template>
   <div class="hello">
-    <div class="container">
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">標題</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="書名">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">副標題</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="相關描述">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">文章內容</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" disabled>發送</button>
-        <div class="text-area">
-          <h1>My Text Event</h1>
-          <p>Capacity: {{ capacity }}</p>
-          <button @click="increaseCapacity()">Increase Capacity</button>
-        </div>
-      </form>
-    </div>
-    <div class="container-fluid pt-5">
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2">
-          <img src='http://fakeimg.pl/500x500?text=Hello%20Img&font=lobster' alt=''/>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nulla blanditiis libero ipsum itaque eos ad laudantium. Facere dolores, sequi suscipit dolorem molestiae ipsa sed placeat, amet omnis necessitatibus laborum porro! Nam quia unde animi debitis repellat, architecto enim in maxime blanditiis soluta consectetur doloribus tempora. Debitis vero tempore alias.
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2">
-          <img src='http://fakeimg.pl/500x500?text=Hello%20Img&font=lobster' alt=''/>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nulla blanditiis libero ipsum itaque eos ad laudantium. Facere dolores, sequi suscipit dolorem molestiae ipsa sed placeat, amet omnis necessitatibus laborum porro! Nam quia unde animi debitis repellat, architecto enim in maxime blanditiis soluta consectetur doloribus tempora. Debitis vero tempore alias.
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2">
-          <img src='http://fakeimg.pl/500x500?text=Hello%20Img&font=lobster' alt=''/>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nulla blanditiis libero ipsum itaque eos ad laudantium. Facere dolores, sequi suscipit dolorem molestiae ipsa sed placeat, amet omnis necessitatibus laborum porro! Nam quia unde animi debitis repellat, architecto enim in maxime blanditiis soluta consectetur doloribus tempora. Debitis vero tempore alias.
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2">
-          <img src='http://fakeimg.pl/500x500?text=Hello%20Img&font=lobster' alt=''/>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nulla blanditiis libero ipsum itaque eos ad laudantium. Facere dolores, sequi suscipit dolorem molestiae ipsa sed placeat, amet omnis necessitatibus laborum porro! Nam quia unde animi debitis repellat, architecto enim in maxime blanditiis soluta consectetur doloribus tempora. Debitis vero tempore alias.
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2">
-          <img src='http://fakeimg.pl/500x500?text=Hello%20Img&font=lobster' alt=''/>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nulla blanditiis libero ipsum itaque eos ad laudantium. Facere dolores, sequi suscipit dolorem molestiae ipsa sed placeat, amet omnis necessitatibus laborum porro! Nam quia unde animi debitis repellat, architecto enim in maxime blanditiis soluta consectetur doloribus tempora. Debitis vero tempore alias.
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2">
-          <img src='http://fakeimg.pl/500x500?text=Hello%20Img&font=lobster' alt=''/>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nulla blanditiis libero ipsum itaque eos ad laudantium. Facere dolores, sequi suscipit dolorem molestiae ipsa sed placeat, amet omnis necessitatibus laborum porro! Nam quia unde animi debitis repellat, architecto enim in maxime blanditiis soluta consectetur doloribus tempora. Debitis vero tempore alias.
-        </div>
-      </div>
-    </div>
+    <h1>{{ msg }}</h1>
+    <p>
+      For a guide and recipes on how to configure / customize this project,<br>
+      check out the
+      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+    </p>
+    <h3>Installed CLI Plugins</h3>
+    <ul>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript" target="_blank" rel="noopener">typescript</a></li>
+    </ul>
+    <h3>Essential Links</h3>
+    <ul>
+      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
+    </ul>
+    <h3>Ecosystem</h3>
+    <ul>
+      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
+      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
+      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
+      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
+    </ul>
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
 
-export default {
-  name: 'HelloWorld',
+
+@Options({
   props: {
     msg: String
-  },
-  setup() {
-    const capacity = ref(3);
-
-    function increaseCapacity() { 
-      capacity.value++;
-    }
-    return { capacity, increaseCapacity };
   }
+})
+export default class HelloWorld extends Vue {
+  msg!: string
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
 }
@@ -87,8 +58,5 @@ li {
 }
 a {
   color: #42b983;
-}
-img {
-  width: 100%;
 }
 </style>

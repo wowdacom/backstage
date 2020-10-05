@@ -4,6 +4,7 @@ import {
 import App from './App.vue'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import http from './utils/http'
 
 const app = createApp(App);
 // Define a new global component called button-counter
@@ -11,13 +12,21 @@ const app = createApp(App);
 //     props: ['todo'],
 //     template: `<li>{{ todo.text }}</li>`
 // })
+app.use(http)
+
+interface LoginData {
+    email: string;
+    password: string;
+    [propName: string]: any;
+}
+
 app.component('custom-form', {
     emits: {
         // No validation
         click: null,
 
         // Validate submit event
-        submit: ({ email, password }) => {
+        submit: ({ email, password }: LoginData) => {
             if (email && password) {
                 return true
             } else {
@@ -27,7 +36,7 @@ app.component('custom-form', {
         }
     },
     methods: {
-        submitForm(email, password) {
+        submitForm(email: string, password: string) {
             this.$emit('submit', { email, password })
         }
     },
