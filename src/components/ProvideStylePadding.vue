@@ -1,10 +1,12 @@
 <template>
-  <slot
-    :$$padding="{
-      class: $style.root,
-      style,
-    }"
-  />
+  <div>
+    <slot
+      :$$padding="{
+        class: $style.root,
+        style,
+      }"
+    />
+  </div>
 </template>
 
 <script>
@@ -25,15 +27,17 @@ export default {
     let style = {};
   
     for (let propertyValue of props.padding) {
-        console.log(props)
+
       let [option, breakpoint] = propertyValue.split(RESPONSIVE_SUFFIX_SEPARATOR);
       let name = [`--padding`, breakpoint]
         .filter(x => x) // Remove `undefined` breakpoint.
         .join(VARIABLE_BREAKPOINT_SEPARATOR);
       
+      
       style[name] = spacings[option];
+      console.log(style)
     }
-    console.log(spacings)
+
     return { style };
   },
 };
@@ -51,7 +55,7 @@ export default {
   --padding-bp-l: var(--padding-bp-m);
 
   padding: var(--padding);
-
+  border: solid 1px yellowgreen;
   @media (min-width: 376px) {
     padding: var(--padding-bp-s);
   }

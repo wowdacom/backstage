@@ -177,14 +177,42 @@
         <div class="row">
           <div class="col-12">
             <h1>Hello StylePadding</h1>
-            <ProvideStylePadding padding="['m', 'l@s', 'xl@l']">
-              <div>我在 slot 裡面</div>
+            <ProvideStylePadding v-slot="{ $$padding }"
+               :padding="padding">
+              <div
+                :class="$$padding.class"
+                :style="$$padding.style"
+              >
+              我在 slot 裡面</div>
             </ProvideStylePadding>
           </div>
         </div>
       </div>
   </div>
-  
+  <div>
+    <hr />
+      <div class="container-fluid mb-5">
+        <div class="row">
+          <div class="col-12">
+            <h1>Hello Mixin Demo</h1>
+            <MixinsDemo></MixinsDemo>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div>
+    <hr />
+      <div class="container-fluid mb-5">
+        <div class="row">
+          <div class="col-12">
+            <h1>Hello Mixin Coupling Test Demo</h1>
+            <h2>Narrate: 使用 composition API 去替代 mixin </h2>
+            <MixinsDemo2></MixinsDemo2>
+          </div>
+        </div>
+      </div>
+  </div>
+
 </template>
 
 <script>
@@ -196,6 +224,8 @@ import ProvideInjectDemo from  './ProvideInjectDemo.vue'
 import ProvideStylePadding from './ProvideStylePadding.vue'
 import TypeScriptDemo from './TypeScriptDemo.vue'
 import AxiosDemo from './AxiosDemo.vue'
+import MixinsDemo from './MixinsDemo.vue'
+import MixinsDemo2 from './MixinsDemo2.vue'
 
 export default {
   data () {
@@ -309,7 +339,9 @@ export default {
     ProvideInjectDemo,
     ProvideStylePadding,
     TypeScriptDemo,
-    AxiosDemo
+    AxiosDemo,
+    MixinsDemo,
+    MixinsDemo2
   },
   methods: {
     sendData() {
