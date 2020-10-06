@@ -212,6 +212,18 @@
         </div>
       </div>
   </div>
+  <div>
+    <hr />
+      <div class="container-fluid mb-5">
+        <div class="row">
+          <div class="col-12">
+            <h1>Hello Reactive and toRefs methods</h1>
+            <h2>Narrate: 怎麼使用 reactive 宣告 以及 toRefs 展開 </h2>
+            <toRefsDemo></toRefsDemo>
+          </div>
+        </div>
+      </div>
+  </div>
 
 </template>
 
@@ -226,6 +238,7 @@ import TypeScriptDemo from './TypeScriptDemo.vue'
 import AxiosDemo from './AxiosDemo.vue'
 import MixinsDemo from './MixinsDemo.vue'
 import MixinsDemo2 from './MixinsDemo2.vue'
+import toRefsDemo from './toRefsDemo.vue'
 
 export default {
   data () {
@@ -341,7 +354,8 @@ export default {
     TypeScriptDemo,
     AxiosDemo,
     MixinsDemo,
-    MixinsDemo2
+    MixinsDemo2,
+    toRefsDemo
   },
   methods: {
     sendData() {
